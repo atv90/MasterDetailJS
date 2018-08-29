@@ -4,13 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Projektien tunnit</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Lisää uusi", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TuntiId)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Pvm)
         </th>
@@ -29,6 +32,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(model => item.TuntiId)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Pvm)
         </td>
         <td>
@@ -41,9 +47,8 @@
             @Html.DisplayFor(modelItem => item.HenkiloId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TuntiId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TuntiId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TuntiId })
+            @Html.ActionLink("Muokkaa", "Edit", new { id = item.TuntiId }) |
+            @Html.ActionLink("Poista", "Delete", new { id = item.TuntiId })
         </td>
     </tr>
 }
