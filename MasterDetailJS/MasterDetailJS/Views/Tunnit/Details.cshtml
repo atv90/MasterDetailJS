@@ -1,0 +1,50 @@
+﻿@model MasterDetailJS.Models.Tunnit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tunnit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pvm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tunnit1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tunnit1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjektiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjektiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HenkiloId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HenkiloId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TuntiId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

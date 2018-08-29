@@ -27,7 +27,7 @@ namespace MasterDetailJS.Controllers
                 foreach (Henkilot henkilo in henkilot)
                 {
                     SimplyHenkilotData hlo = new SimplyHenkilotData();
-                    hlo.Henkilo_id = henkilo.HenkiloId;
+                    hlo.HenkiloId = henkilo.HenkiloId;
                     hlo.Etunimi = henkilo.Etunimi;
                     hlo.Sukunimi = henkilo.Sukunimi;
                     hlo.Osoite = henkilo.Osoite;
@@ -63,10 +63,10 @@ namespace MasterDetailJS.Controllers
             {
                 SimplyTunnitData data = new SimplyTunnitData();
 
-                data.Tunti_id = tunti.TuntiId;
-                data.Henkilo_id = (int)(tunti.HenkiloId);
+                data.TuntiId = tunti.TuntiId;
+                data.HenkiloId = (int)(tunti.HenkiloId);
                 data.Pvm = tunti.Pvm.Value.ToString(fiFi);
-                data.Projekti_tunnit = (int)tunti.Tunnit1;
+                data.Tunnit1 = (int)tunti.Tunnit1;
 
                 List<Projektit> projektit = (from p in entities.Projektit
                                              where p.ProjektiId == tunti.ProjektiId
@@ -116,7 +116,7 @@ namespace MasterDetailJS.Controllers
 
             //luodaan Henkilot-luokkaan uusi olio
             Henkilot henkilot = new Henkilot();
-            henkilot.HenkiloId = model.Henkilo_id;
+            henkilot.HenkiloId = model.HenkiloId;
             henkilot.Etunimi = model.Etunimi;
             henkilot.Sukunimi = model.Sukunimi;
             henkilot.Osoite = model.Osoite;
@@ -152,7 +152,7 @@ namespace MasterDetailJS.Controllers
 
             //muokataan jo olemassa olevaa
             SimplyHenkilotData hlo = new SimplyHenkilotData();
-            hlo.Henkilo_id = henkilo.HenkiloId;
+            hlo.HenkiloId = henkilo.HenkiloId;
             hlo.Etunimi = henkilo.Etunimi;
             hlo.Sukunimi = henkilo.Sukunimi;
             hlo.Osoite = henkilo.Osoite;
@@ -168,7 +168,7 @@ namespace MasterDetailJS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SimplyHenkilotData model)
         {
-            Henkilot hlo = db.Henkilot.Find(model.Henkilo_id);
+            Henkilot hlo = db.Henkilot.Find(model.HenkiloId);
             hlo.Etunimi = model.Etunimi;
             hlo.Sukunimi = model.Sukunimi;
             hlo.Osoite = model.Osoite;
@@ -194,7 +194,7 @@ namespace MasterDetailJS.Controllers
             }
 
             SimplyHenkilotData hlo = new SimplyHenkilotData();
-            hlo.Henkilo_id = henkilo.HenkiloId;
+            hlo.HenkiloId = henkilo.HenkiloId;
             hlo.Etunimi = henkilo.Etunimi;
             hlo.Sukunimi = henkilo.Sukunimi;
             hlo.Osoite = henkilo.Osoite;

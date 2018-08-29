@@ -12,7 +12,7 @@ namespace MasterDetailJS.Models
             this.Tunnit = new HashSet<Tunnit>();
         }
 
-        public int Henkilo_id { get; set; }
+        public int HenkiloId { get; set; }
         public string Osoite { get; set; }
         public int? Esimies { get; set; }
         public string Etunimi { get; set; }
