@@ -155,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HenkilotController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,6 +181,8 @@
     <Compile Include="Models\Projektit.cs">
       <DependentUpon>MasterDetailJS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SimplyHenkilotData.cs" />
+    <Compile Include="Models\SimplyTunnitData.cs" />
     <Compile Include="Models\Tunnit.cs">
       <DependentUpon>MasterDetailJS.tt</DependentUpon>
     </Compile>
@@ -241,6 +244,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Henkilot\Create.cshtml" />
+    <Content Include="Views\Henkilot\Delete.cshtml" />
+    <Content Include="Views\Henkilot\Details.cshtml" />
+    <Content Include="Views\Henkilot\Edit.cshtml" />
+    <Content Include="Views\Henkilot\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
