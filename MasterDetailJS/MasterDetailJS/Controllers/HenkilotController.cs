@@ -66,7 +66,7 @@ namespace MasterDetailJS.Controllers
                 data.Tunti_id = tunti.TuntiId;
                 data.Henkilo_id = (int)(tunti.HenkiloId);
                 data.Pvm = tunti.Pvm.Value.ToString(fiFi);
-                //data.Projekti_tunnit = (int)tunti.Projekti_tunnit;
+                data.Projekti_tunnit = (int)tunti.Tunnit1;
 
                 List<Projektit> projektit = (from p in entities.Projektit
                                              where p.ProjektiId == tunti.ProjektiId
