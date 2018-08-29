@@ -4,13 +4,18 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Haluatko varmasti poistaa tämän projekti-id:n?</h3>
+<h4>Et voi poistaa projektia, jos tunnit-taulussa on siihen yhdistyviä tunteja.</h4>
 <div>
-    <h4>Projektit</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjektiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjektiId)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Nimi)
         </dt>
@@ -21,12 +26,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Poista" class="btn btn-default" /> |
+            @Html.ActionLink("Takaisin projektit-tauluun", "Index")
         </div>
     }
 </div>
