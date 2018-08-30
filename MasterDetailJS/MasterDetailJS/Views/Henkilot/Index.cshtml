@@ -12,7 +12,8 @@
     <script type="text/javascript">
 
         $(function () {
-            $(".näytäTunnitPerProjektiNappi").click(function () {
+            $(".näytäTunnitPerProjektiNappi").click(function ()
+            {
                 //alert("Nappia painettu!");
                 var henkiloId = $(this).data("henkiloid");
                 //var p1 = $(this).parent();
@@ -20,7 +21,7 @@
 
                 $("#tunnit_" + henkiloId).css("display", "table-row");
 
-                var url = "/henkilots/GetTunnit/" + henkiloId;
+                var url = "/Henkilot/GetTunnit/" + henkiloId;
                 //alert (url);
                 $.ajax(url).done(function (data) {
                     //alert("Palvelimelta tuli vastaus.");
