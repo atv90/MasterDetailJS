@@ -4,6 +4,10 @@
     ViewBag.Title = "Index";
 }
 @section scripts {
+    <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+                integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+                crossorigin="anonymous">
+    </head>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script type="text/javascript">
 
@@ -14,7 +18,7 @@
                 //var p1 = $(this).parent();
                 //alert(henkiloId);
 
-            $("#tunnit_" + henkiloId).css("display", "table-row");
+                $("#tunnit_" + henkiloId).css("display", "table-row");
 
                 var url = "/henkilots/GetTunnit/" + henkiloId;
                 //alert (url);
@@ -24,16 +28,16 @@
                     var tunnitData = "";
                     for (var i = 0; i < data.length; i++) {
                         tunnitData += (i + 1) + ": " + data[i].ProjektiNimi +
-                            " | " + data[i].Pvm + " | " + "Tunti-id:" + data[i].TuntiId + " | " +"Tunnit: " +
-                        data[i].Tunnit1 + "\r\n";
+                            " | " + data[i].Pvm + " | " + "Tunti-id:" + data[i].TuntiId + " | " + "Tunnit: " +
+                            data[i].Tunnit1 + "\r\n";
                     }
 
                     //alert(tunnitData);
 
-              $("#tunnitText_" + henkiloId).html("<pre>" + tunnitData + "</pre>");
+                    $("#tunnitText_" + henkiloId).html("<pre>" + tunnitData + "</pre>");
+                });
+            });
         });
-    });
-});
     </script>
 }
 
@@ -66,7 +70,8 @@
     {
         <tr>
             <td>
-                <a href="#"><span data-henkiloid="@Html.DisplayFor(modelItem => item.HenkiloId)" class="glyphicon glyphicon-plus näytäTunnitPerProjektiNappi"></span></a>
+                
+                <a href="#"><span data-henkiloid="@Html.DisplayFor(modelItem => item.HenkiloId)" class="fas fa-plus näytäTunnitPerProjektiNappi"></span></a>
 
                 @Html.DisplayFor(modelItem => item.HenkiloId)
             </td>
