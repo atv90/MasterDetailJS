@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MasterDetailJSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MasterDetailJSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Henkilot">
           <Key>
             <PropertyRef Name="HenkiloId" />
@@ -21,6 +21,7 @@
           </Key>
           <Property Name="ProjektiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="Tunnit">
           <Key>
@@ -37,8 +38,7 @@
           <EntitySet Name="Projektit" EntityType="Self.Projektit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tunnit" EntityType="Self.Tunnit" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MasterDetailJSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -58,6 +58,7 @@
           </Key>
           <Property Name="ProjektiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
         </EntityType>
         <EntityType Name="Tunnit">
           <Key>
@@ -94,6 +95,7 @@
           <EntitySetMapping Name="Projektit">
             <EntityTypeMapping TypeName="MasterDetailJSModel.Projektit">
               <MappingFragment StoreEntitySet="Projektit">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ProjektiId" ColumnName="ProjektiId" />
                 <ScalarProperty Name="Nimi" ColumnName="Nimi" />
               </MappingFragment>
