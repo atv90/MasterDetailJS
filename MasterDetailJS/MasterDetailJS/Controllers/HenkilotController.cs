@@ -82,6 +82,74 @@ namespace MasterDetailJS.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        // GET: ProjektiStatus
+        public ActionResult ProjektiStatus()
+        {
+            List<SimplyHenkilotData> model = new List<SimplyHenkilotData>();
+            MasterDetailJSEntities entities = new MasterDetailJSEntities();
+            try
+            {
+                List<Henkilot> henkilot = entities.Henkilot.OrderByDescending(Henkilot => Henkilot.HenkiloId).ToList();
+                // muodostetaan näkymämalli tietokannan rivien pohjalta
+                foreach (Henkilot henkilo in henkilot)
+                {
+                    SimplyHenkilotData hlo = new SimplyHenkilotData();
+                    hlo.HenkiloId = henkilo.HenkiloId;
+                    hlo.Etunimi = henkilo.Etunimi;
+                    hlo.Sukunimi = henkilo.Sukunimi;
+                    hlo.Osoite = henkilo.Osoite;
+                    hlo.Esimies = henkilo.Esimies;
+
+                    model.Add(hlo);
+                }
+
+
+                return View(model);
+            }
+            finally
+            {
+                entities.Dispose();
+            }
+        }
+
+        //Alikyselyyn
+        //int? kysymysmerkki mahdollistaa myös nolla-arvot parametrille
+        public ActionResult AnnaTunnit(int? id)
+        {
+            MasterDetailJSEntities entities = new MasterDetailJSEntities();
+
+            List<Tunnit> tunnit = (from t in entities.Tunnit
+                                   where t.HenkiloId == id
+                                   select t).ToList();
+
+            List<SimplyTunnitData> result = new List<SimplyTunnitData>();
+
+            CultureInfo fiFi = new CultureInfo("fi-FI");
+
+            foreach (Tunnit tunti in tunnit)
+            {
+                SimplyTunnitData data = new SimplyTunnitData();
+
+                data.TuntiId = tunti.TuntiId;
+                data.HenkiloId = (int)(tunti.HenkiloId);
+                data.Pvm = tunti.Pvm.Value.ToString(fiFi);
+                data.Tunnit1 = (int)tunti.Tunnit1;
+                
+
+                List<Projektit> projektit = (from p in entities.Projektit
+                                             where p.ProjektiId == tunti.ProjektiId
+                                             select p).ToList();
+
+                data.ProjektiNimi = projektit[0].Nimi;
+                data.ProjektiStatus = projektit[0].Status;
+
+                result.Add(data);
+            }
+
+            entities.Dispose();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Henkilots/Details/5
         public ActionResult Details(int? id)

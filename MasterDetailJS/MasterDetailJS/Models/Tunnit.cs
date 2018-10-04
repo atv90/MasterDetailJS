@@ -19,5 +19,6 @@ namespace MasterDetailJS.Models
         public Nullable<decimal> Tunnit1 { get; set; }
         public Nullable<int> ProjektiId { get; set; }
         public Nullable<int> HenkiloId { get; set; }
+       
     }
 }

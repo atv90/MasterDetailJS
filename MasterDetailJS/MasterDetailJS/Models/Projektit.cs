@@ -16,5 +16,6 @@ namespace MasterDetailJS.Models
     {
         public int ProjektiId { get; set; }
         public string Nimi { get; set; }
+        public Nullable<int> Status { get; set; }
     }
 }

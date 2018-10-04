@@ -13,12 +13,14 @@ namespace MasterDetailJS.Models
         public int ProjektiId { get; set; }
         public string Etunimi { get; set; }
         public string Sukunimi { get; set; }
+        //public int ProjektiStatus { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:HH\\:mm}", ApplyFormatInEditMode = true)]
         public string Pvm { get; set; }
         public double Tunnit1 { get; set; }
         public string ProjektiNimi { get; set; }
+        public int? ProjektiStatus { get; set; }
     
     }
 }

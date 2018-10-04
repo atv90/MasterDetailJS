@@ -13,6 +13,11 @@ namespace MasterDetailJS.Controllers
             return View();
         }
 
+        public ActionResult ProjektiStatus()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
