@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using MasterDetailJS.Models;
 
+
 namespace MasterDetailJS.Controllers
 {
     public class HenkilotController : Controller
@@ -73,6 +74,7 @@ namespace MasterDetailJS.Controllers
                                              select p).ToList();
 
                 data.ProjektiNimi = projektit[0].Nimi;
+                data.ProjektiStatus = projektit[0].Status;
 
                 result.Add(data);
             }
@@ -112,7 +114,7 @@ namespace MasterDetailJS.Controllers
             }
         }
 
-        //Alikyselyyn
+        //ProjektinStatus-Alikyselyyn
         //int? kysymysmerkki mahdollistaa myös nolla-arvot parametrille
         public ActionResult AnnaTunnit(int? id)
         {
@@ -149,6 +151,14 @@ namespace MasterDetailJS.Controllers
             entities.Dispose();
 
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetEmployeeData()
+        {
+            using (MasterDetailJSEntities dc = new MasterDetailJSEntities())
+            {
+                var data = dc.Henkilot.ToList();
+                return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
         }
 
         // GET: Henkilots/Details/5
